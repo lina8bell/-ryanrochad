@@ -1,168 +1,195 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<title>瑞恩罗恰德 登录注册</title>
+  <meta charset="UTF-8" />
+  <title>瑞恩罗恰德 登录注册</title>
 
-<!-- 引入 Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-.box {
-    background-color: white;
-    display: flex;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    overflow: hidden;
-}
-.left-section, .right-section {
-    padding: 40px;
-    width: 400px;
-    box-sizing: border-box;
-}
-.left-section {
-    border-right: 1px solid #eee;
-}
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #6c5ce7;
-}
-form input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #6c5ce7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-form button:hover {
-    background-color: #5e54d2;
-}
-.social-login {
-    text-align: center;
-    margin-top: 15px;
-}
-.social-login a {
-    margin: 0 5px;
-    text-decoration: none;
-    color: #6c5ce7;
-}
-</style>
-
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 40px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tabs li {
+      list-style: none;
+      margin: 0 20px;
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    .tabs li.active {
+      border-bottom: 2px solid #6c5ce7;
+      color: #6c5ce7;
+      font-weight: bold;
+    }
+    form {
+      display: none;
+    }
+    form.active {
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6c5ce7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5947d6;
+    }
+    .center-text {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .center-text a {
+      color: #6c5ce7;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  </style>
 </head>
-
 <body>
-<div class="container">
-  <div class="box">
-    
-    <!-- 登录表单 -->
-    <div class="left-section">
-      <h2>登录 Login</h2>
-      <form id="login-form">
-        <input type="email" id="login-email" placeholder="邮箱 Email" required>
-        <input type="password" id="login-password" placeholder="密码 Password" required>
-        <button type="submit">登录 Login</button>
-        <div class="social-login">
-          <p>忘记密码？ Forget Password？</p>
-        </div>
-      </form>
+
+  <div class="container">
+    <div class="logo">
+      <img src="images/37eef08795715baa9746a6829c38d89.png" alt="Ryan Rochad Logo" style="height: 80px;">
     </div>
+
+    <ul class="tabs">
+      <li id="login-tab" class="active">LOGIN</li>
+      <li id="signup-tab">SIGN UP</li>
+    </ul>
+
+    <!-- 登录表单 -->
+    <form id="login-form" class="active">
+      <input type="email" id="login-email" placeholder="Email" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button type="submit">LOGIN</button>
+      <div class="center-text">
+        <a href="#">Forget Password?</a>
+      </div>
+      <div class="center-text">
+        <p>or</p>
+        <a href="https://weixin.qq.com/" target="_blank">微信登录</a>
+        <a href="https://im.qq.com/index/" target="_blank">QQ登录</a>
+      </div>
+    </form>
 
     <!-- 注册表单 -->
-    <div class="right-section">
-      <h2>注册 Sign Up</h2>
-      <form id="signup-form">
-        <input type="email" id="signup-email" placeholder="邮箱 Email" required>
-        <input type="password" id="signup-password" placeholder="密码 Password" required>
-        <button type="submit">注册 Sign Up</button>
-        <div class="social-login">
-          <a href="https://weixin.qq.com/" target="_blank">微信登录</a> | 
-          <a href="https://im.qq.com/index/" target="_blank">QQ登录</a>
-        </div>
-      </form>
-    </div>
-
+    <form id="signup-form">
+      <input type="email" id="signup-email" placeholder="Email" required>
+      <input type="password" id="signup-password" placeholder="Password" required>
+      <button type="submit">SIGN UP</button>
+      <div class="center-text">
+        <p>or</p>
+        <a href="https://weixin.qq.com/" target="_blank">微信登录</a>
+        <a href="https://im.qq.com/index/" target="_blank">QQ登录</a>
+      </div>
+    </form>
   </div>
-</div>
 
-<script>
-  // ======= 你的 Firebase 配置 =======
-  const firebaseConfig = {
-    apiKey: "AIzaSyDipF9OB3ViymcyZ6PTCBvdBrQ5Ze09MLQ",
-    authDomain: "ryanrochad-5c497.firebaseapp.com",
-    projectId: "ryanrochad-5c497",
-    storageBucket: "ryanrochad-5c497.firebasestorage.app",
-    messagingSenderId: "454876873137",
-    appId: "1:454876873137:web:c0592b5f307e777282bd90"
-  };
+  <script>
+    // Firebase 配置
+    const firebaseConfig = {
+      apiKey: "AIzaSyDipF9OB3ViymcyZ6PTCBvdBrQ5Ze09MLQ",
+      authDomain: "ryanrochad-5c497.firebaseapp.com",
+      projectId: "ryanrochad-5c497",
+      storageBucket: "ryanrochad-5c497.firebasestorage.app",
+      messagingSenderId: "454876873137",
+      appId: "1:454876873137:web:c0592b5f307e777282bd90"
+    };
 
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+    // 初始化
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-  // 登录逻辑
-  document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
+    // 标签切换逻辑
+    const loginTab = document.getElementById('login-tab');
+    const signupTab = document.getElementById('signup-tab');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
 
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        alert('登录成功！');
-        window.location.href = 'index.html'; // 登录后跳转首页
-      })
-      .catch((error) => {
-        alert('登录失败: ' + error.message);
-      });
-  });
+    loginTab.addEventListener('click', () => {
+      loginTab.classList.add('active');
+      signupTab.classList.remove('active');
+      loginForm.classList.add('active');
+      signupForm.classList.remove('active');
+    });
 
-  // 注册逻辑
-  document.getElementById('signup-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
+    signupTab.addEventListener('click', () => {
+      signupTab.classList.add('active');
+      loginTab.classList.remove('active');
+      signupForm.classList.add('active');
+      loginForm.classList.remove('active');
+    });
 
-    auth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        alert('注册成功！请登录。');
-        window.location.reload(); // 注册后刷新回登录页面
-      })
-      .catch((error) => {
-        alert('注册失败: ' + error.message);
-      });
-  });
+    // 登录逻辑
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
 
-  // 登录状态监听（非必须，可以观察）
-  auth.onAuthStateChanged(user => {
-    if (user) {
-      console.log('用户已登录:', user.email);
-    } else {
-      console.log('未登录');
-    }
-  });
-</script>
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          alert('登录成功！');
+          window.location.href = 'index.html';
+        })
+        .catch(error => {
+          alert('登录失败：' + error.message);
+        });
+    });
+
+    // 注册逻辑
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          alert('注册成功！请登录。');
+          loginTab.click(); // 自动切回登录页
+        })
+        .catch(error => {
+          alert('注册失败：' + error.message);
+        });
+    });
+  </script>
 
 </body>
 </html>
