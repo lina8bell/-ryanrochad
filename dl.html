@@ -1,18 +1,16 @@
 <!doctype html>
-<html>
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>瑞恩罗恰德</title>
+<title>瑞恩罗恰德 登录注册</title>
 
-	<style type="text/css">
-、
+<style>
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
-
 .container {
     display: flex;
     justify-content: space-between;
@@ -20,37 +18,30 @@ body {
     min-height: 100vh;
     padding: 0 50px;
 }
-
-
 .left-section {
     background-color: white;
     padding: 30px;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
-
 .logo img {
     width: 150px;
 }
-
 .tabs {
     display: flex;
     list-style-type: none;
     margin: 20px 0;
     padding: 0;
 }
-
 .tabs li {
     padding: 10px 20px;
     cursor: pointer;
     border-bottom: 2px solid transparent;
 }
-
 .tabs li.active {
     border-bottom: 2px solid #6c5ce7;
     color: #6c5ce7;
 }
-
 form input {
     width: 100%;
     padding: 10px;
@@ -58,7 +49,6 @@ form input {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-
 form button {
     width: 100%;
     padding: 10px;
@@ -68,64 +58,88 @@ form button {
     border-radius: 3px;
     cursor: pointer;
 }
-
 .forgot-password {
     text-align: center;
     margin-top: 10px;
     color: #6c5ce7;
     cursor: pointer;
 }
-
 .or {
     text-align: center;
     margin: 10px 0;
 }
-
 .social-login a {
     margin: 0 5px;
 }
-
-.social-login img {
-    width: 30px;
-}
-
-
 .right-section {
     flex: 1;
     text-align: center;
 }
-
 .right-section img {
     max-width: 100%;
     height: auto;
 }
-	</style>
+</style>
+
 </head>
 
 <body>
-	<div class="container">
-    <div class="left-section">
-        <div class="logo">
-        <img src="images/37eef08795715baa9746a6829c38d89.png" width="20" height="120" alt=""/> </div>
-        <ul class="tabs">
-            <li class="active" id="login-tab">LOGIN</li>
-            <li id="signup-tab">SIGN UP</li>
-        </ul>
-        <form id="login-form">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button type="submit">LOGIN</button>
-            <p class="forgot-password">Forget Password?</p >
-            <p class="or">or</p >
-            <div class="social-login">
-	<p align="center"><a href="https://weixin.qq.com/" > 微信登录</a>
-				<a href="https://im.qq.com/index/"> QQ登录</a>
-			</div></p> 
-		
-        </form>
+<div class="container">
+  <div class="left-section">
+    <div class="logo">
+      <img src="images/37eef08795715baa9746a6829c38d89.png" width="20" height="120" alt="logo">
     </div>
-    <div class="right-section">
-      <img src="images/cc54910e440a2e5c3bc6fcc9b17674a.jpg" width="900" height="700" alt=""/> </div>
+
+    <ul class="tabs">
+      <li class="active" id="login-tab">LOGIN</li>
+      <li id="signup-tab">SIGN UP</li>
+    </ul>
+
+    <!-- 登录表单 -->
+    <form id="login-form">
+      <input type="email" id="login-email" placeholder="Email" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button type="submit">LOGIN</button>
+      <p class="forgot-password">Forget Password?</p>
+      <p class="or">or</p>
+      <div class="social-login">
+        <p align="center">
+          <a href="https://weixin.qq.com/" target="_blank">微信登录</a>
+          <a href="https://im.qq.com/index/" target="_blank">QQ登录</a>
+        </p>
+      </div>
+    </form>
+
+    <!-- 注册表单（默认隐藏） -->
+    <form id="signup-form" style="display:none;">
+      <input type="email" id="signup-email" placeholder="Email" required>
+      <input type="password" id="signup-password" placeholder="Password" required>
+      <button type="submit">SIGN UP</button>
+    </form>
+
+  </div>
+
+  <div class="right-section">
+    <img src="images/cc54910e440a2e5c3bc6fcc9b17674a.jpg" width="900" height="700" alt="banner">
+  </div>
 </div>
+
+<script>
+  // Tabs切换逻辑
+  document.getElementById('login-tab').addEventListener('click', function() {
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('signup-form').style.display = 'none';
+    this.classList.add('active');
+    document.getElementById('signup-tab').classList.remove('active');
+  });
+
+  document.getElementById('signup-tab').addEventListener('click', function() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('signup-form').style.display = 'block';
+    this.classList.add('active');
+    document.getElementById('login-tab').classList.remove('active');
+  });
+</script>
+
 </body>
 </html>
