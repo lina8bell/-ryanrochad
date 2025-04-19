@@ -2,289 +2,130 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Home</title>
+<title>瑞恩罗恰德</title>
 
 	<style type="text/css">
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+、
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #000;
-    color: #fff;
-}
-
-.logo img {
-    vertical-align: middle;
-}
-
-.navigation ul {
-    list-style-type: none;
-    display: flex;
-}
-
-.navigation ul li {
-    margin-right: 20px;
-}
-
-.navigation ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-}
-
-.btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.search-icon {
-    color: #fff;
-    text-decoration: none;
-}
-
-
-.main-heading {
-    text-align: center;
-    padding: 50px;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
 }
 
-.main-heading h1 {
-    font-size: 36px;
-    color: #333;
-}
-
-.main-heading p.subheading {
-    font-size: 18px;
-    color: #007bff;
-}
-
-.destination-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    padding: 50px;
-    justify-items: center;
-}
-
-.destination-item {
-    text-align: center;
-}
-
-.destination-item img {
-    margin-bottom: 10px;
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 50px;
 }
 
 
-.subscribe-section {
-    text-align: center;
-    padding: 50px;
-    background-color: #ccc;
-}
-
-.subscribe-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.subscribe-section p.subscribe-text {
-    margin-bottom: 30px;
-}
-
-.subscribe-section form input {
-    padding: 10px;
-    width: 300px;
-    margin-right: 10px;
-}
-
-
-.footer {
-    background-color: #000;
-    color: #fff;
+.left-section {
+    background-color: white;
     padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.footer-left {
-    margin-bottom: 20px;
+.logo img {
+    width: 150px;
 }
 
-.footer-left p.footer-text {
-    margin-top: 10px;
-}
-
-.social-icons a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.footer-middle,
-.footer-right {
-    margin-bottom: 20px;
-}
-
-.footer-middle h3,
-.footer-right h3 {
-    margin-bottom: 10px;
-}
-
-.footer-middle ul li,
-.footer-right ul li {
+.tabs {
+    display: flex;
     list-style-type: none;
-    margin-bottom: 5px;
+    margin: 20px 0;
+    padding: 0;
 }
 
-.footer-middle ul li a,
-.footer-right ul li a {
-    color: #fff;
-    text-decoration: none;
+.tabs li {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
 }
 
-.footer-bottom {
+.tabs li.active {
+    border-bottom: 2px solid #6c5ce7;
+    color: #6c5ce7;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.forgot-password {
     text-align: center;
-    border-top: 1px solid #333;
-    padding-top: 10px;
+    margin-top: 10px;
+    color: #6c5ce7;
+    cursor: pointer;
+}
+
+.or {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.social-login a {
+    margin: 0 5px;
+}
+
+.social-login img {
+    width: 30px;
+}
+
+
+.right-section {
+    flex: 1;
+    text-align: center;
+}
+
+.right-section img {
+    max-width: 100%;
+    height: auto;
 }
 	</style>
 </head>
 
 <body>
-	 <header class="header">
+	<div class="container">
+    <div class="left-section">
         <div class="logo">
-        <img src="2/7f8289149e7afb9080de1d886d05e02.png" width="120" alt=""/> </div>
-        <nav class="navigation">
-            <ul>
-                <li>Home</li>
-                <li><a href="zhuye.html">About us</a></li>
-                <li>Services</li>
-                <li>Contact</li>
-		      <li><a href="dl.html">login</a></li>
-            </ul>
-        </nav>
-        <div class="header-actions">
-            <button class="btn">Learn more</button>
-            <i class="fas fa-search"></i> 
-        </div>
-    </header>
-
-
-    <section class="main-heading">
-        <h1>Collection Introduction</h1>
-        <p class="subheading">Introduction</p >
-    </section>
-
-        <section class="destination-grid">
-        <div class="destination-item">
-            <img src="2/1d2376a3e71476e700ca5df3c0defda.jpg" width="200" height="200" alt=""/>
-          <h3>清乾隆 莲纹福庆有馀太平有象扁瓶</h3>
-            <button class="btn">Learn</button>
-        </div>
-        <div class="destination-item">
-          <img src="2/4c2499b28a90f7800ef59a521e05075.jpg" width="200" height="200" alt=""/>
-            <h3>清乾隆 茄皮紫釉梅瓶</h3>
-            <button class="btn">Learn</button>
-        </div>
-        <div class="destination-item">
-          <img src="2/7fb57dbd5c9fbef0187ea041abecbd6.jpg" width="200" height="200" alt=""/>
-            <h3>清雍正 仿哥釉五瓣瓜棱瓶</h3>
-            <button class="btn">Learn</button>
-        </div>
-        <div class="destination-item">
-          <img src="2/44dfb15f4ca4b667225a314ace8eca2.jpg" width="200" height="200" alt=""/>
-            <h3>清乾隆 粉青釉模印夔龙凤纹八方瓶</h3>
-            <button class="btn">Learn</button>
-        </div>
-        <div class="destination-item">
-           <img src="2/996b863e4eac00e18e7fbe795a15475.jpg" width="200" height="200" alt=""/>
-<h3>清雍正 胭脂红釉茶圆</h3>
-            <button class="btn">Learn</button>
-        </div>
-        <div class="destination-item">
-         <img src="2/1195ea17ab34dfd14c7541bc722d734.jpg" width="200" height="200" alt=""/>
-            <h3>清雍正 锥拱苍龙教子图梅瓶</h3>
-            <button class="btn">Learn</button>
-        </div>
-        <div class="destination-item">
-        <img src="2/5453b967f9292611e79d3b8a785d40f.jpg" width="200" height="200" alt=""/>
-            <h3>清雍正 黄地绿彩刻番莲纹酒圆</h3>
-            <button class="btn">Learn</button>
-        </div>
-        <div class="destination-item">
-        <img src="2/56489271e84382de2c60a2f1de911c5.jpg" width="200" height="200" alt=""/>
-            <h3>清乾隆 瓷仿雕漆高士雅集图圆盒</h3>
-            <button class="btn">Learn</button>
-        </div>
-    </section>
-
-
-    <section class="subscribe-section">
-        <h2>SLeave your contact information</h2>
-        <p class="subscribe-text">Sed autem eiusmod tempor incididunt ut labore et dolore magna aliqua.</p >
-        <form action="#">
-            <input type="email" placeholder="Enter your email here" required>
-            <button type="submit" class="btn">Submit</button>
+        <img src="images/37eef08795715baa9746a6829c38d89.png" width="20" height="120" alt=""/> </div>
+        <ul class="tabs">
+            <li class="active" id="login-tab">LOGIN</li>
+            <li id="signup-tab">SIGN UP</li>
+        </ul>
+        <form id="login-form">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button type="submit">LOGIN</button>
+            <p class="forgot-password">Forget Password?</p >
+            <p class="or">or</p >
+            <div class="social-login">
+	<p align="center"><a href="https://weixin.qq.com/" > 微信登录</a>
+				<a href="https://im.qq.com/index/"> QQ登录</a>
+			</div></p> 
+		
         </form>
-    </section>
-
-
-    <footer class="footer">
-        <div class="footer-left">
-           <img src="2/7f8289149e7afb9080de1d886d05e02.png" width="120" alt=""/>
-<p class="footer-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p >
-            <div class="social-icons">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-            </div>
-      </div>
-        <div class="footer-middle">
-            <h3>Quick Links</h3>
-            <ul>
-                <li>Home</li>
-                <li>Your Planet</li>
-                <li>Circulator</li>
-                <li>Pages</li>
-                <li>Blog</li>
-                <li>Contact</li>
-            </ul>
-        </div>
-        <div class="footer-right">
-            <h3>Our Partners</h3>
-            <ul>
-                <li>Robert Johnson</li>
-                <li>Emily Brown</li>
-                <li>Viola Blackett</li>
-                <li>Viola Blackett</li>
-            </ul>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 Ryan Rochadd. All rights reserved.</p >
-            <p>Powered by Ryan Rochard</p >
-        </div>
-    </footer>
-
+    </div>
+    <div class="right-section">
+      <img src="images/cc54910e440a2e5c3bc6fcc9b17674a.jpg" width="900" height="700" alt=""/> </div>
+</div>
 </body>
 </html>
