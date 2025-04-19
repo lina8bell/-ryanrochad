@@ -133,6 +133,56 @@ form button {
     document.getElementById('login-tab').classList.remove('active');
   });
 </script>
+<script type="module">
+  // 导入Firebase功能
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+  // 初始化Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyDipF9OB3ViymcyZ6PTCBvdBrQ5Ze09MLQ",
+    authDomain: "ryanrochad-5c497.firebaseapp.com",
+    projectId: "ryanrochad-5c497",
+    storageBucket: "ryanrochad-5c497.firebasestorage.app",
+    messagingSenderId: "454876873137",
+    appId: "1:454876873137:web:c0592b5f307e777282bd90"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // 登录功能
+  document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.querySelector('#login-form input[type="email"]').value;
+    const password = document.querySelector('#login-form input[type="password"]').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert('登录成功！');
+        window.location.href = 'dl.html'; // 登录成功跳转首页，可以改成index.html
+      })
+      .catch((error) => {
+        alert('登录失败: ' + error.message);
+      });
+  });
+
+  // 注册功能
+  document.getElementById('signup-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.querySelector('#signup-form input[type="email"]').value;
+    const password = document.querySelector('#signup-form input[type="password"]').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert('注册成功，请登录！');
+        window.location.reload(); // 注册后刷新回登录界面
+      })
+      .catch((error) => {
+        alert('注册失败: ' + error.message);
+      });
+  });
+</script>
 
 </body>
 </html>
